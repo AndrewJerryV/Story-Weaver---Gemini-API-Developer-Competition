@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li id="genre-container"><span id="selected-genre">Selected Genre: </span></li>
+            </ul>
+        </nav>            
+    </header>
+    <button id="end-story-button" class="header-button">End Story</button>
+    <main>
+        <p id="selected-genre"></p>
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <form id="chat-form">
+                <textarea id="user-input" placeholder=" Type your choice here..." required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div class="loading-spinner" id="loading-spinner"></div>
+        </div>
+    </main>
+    
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+    <script src="config.js"></script>
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedGenre = getQueryParameter('genre');
+            if (selectedGenre) {
+                document.getElementById('selected-genre').textContent = `Selected Genre: ${selectedGenre}`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images4.alphacoders.com/133/thumb-1920-1339714.png');
+            background-position: center;  
+        }
+        fieldset {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.5em;
+        }
+        legend {
+            font-weight: bold;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #252121;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"] + span {
+            position: relative;
+            padding-left: 35px;
+            line-height: 1.5em;
+            cursor: pointer;
+        }
+        input[type="radio"] + span:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            background: #fff;
+        }
+        input[type="radio"]:checked + span:before {
+            background: #333;
+            border-color: #333;
+        }
+        input[type="radio"]:checked + span:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ebf3f2;
+        }
+    </style>
+</head>
+<body>
+    <form id="selection-form">
+        <fieldset>
+            <legend>Select a Genre:</legend>
+            <label><input type="radio" name="genre" value="Science fiction"><span>Science fiction</span></label>
+            <label><input type="radio" name="genre" value="Fantasy"><span>Fantasy</span></label>
+            <label><input type="radio" name="genre" value="Mystery"><span>Mystery</span></label>
+            <label><input type="radio" name="genre" value="Romance"><span>Romance</span></label>
+            <label><input type="radio" name="genre" value="Horror"><span>Horror</span></label>
+            <label><input type="radio" name="genre" value="Thriller"><span>Thriller</span></label>
+        </fieldset>
+    </form>
+    <script>
+        document.querySelectorAll('input[name="genre"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    window.location.href = `main.html?genre=${encodeURIComponent(radio.value)}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

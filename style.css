@@ -1,0 +1,187 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #dce9e7, #2ca798);
+    background-attachment: fixed;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 300px;
+    background-color: #028f5a; /* Updated navbar color */
+    color: white;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center content in the header */
+    border-radius: 3px;
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Vertically center content in the nav */
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center items in the ul */
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white; /* Ensure text color contrasts well */
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1.5; /* Adjust line-height if needed for vertical centering */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 2em;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+form {
+    margin-top: 1em;
+}
+
+fieldset {
+    border: 2px solid #004d40;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+}
+
+label {
+    display: block;
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+button {
+    padding: 0.7em 1.2em;
+    border: none;
+    background-color: #028f5a; /* Adjusted button color */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #026d4c; /* Adjusted hover color */
+}
+
+.loading-spinner {
+    display: none;
+    border: 8px solid rgba(255, 255, 255, 0.3); /* Light color for the background circle */
+    border-top: 8px solid #028f5a; /* Darker teal color for the spinner */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#chat-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    height: auto;
+    max-height: 75vh;
+    overflow-y: auto;
+    font-size: 18px;
+}
+
+#user-input {
+    width: 80%;
+    height: 70px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.chat-container {
+    background: rgba(255, 255, 255, 0.377);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#chat-form button {
+    background: #028f5a; 
+    height: 50px;
+    font-size: 16px;
+    vertical-align: top;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+.header-button, #end-story-button {
+    background: #028f5a;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+#end-story-button {
+    display: none; /* Hide the button initially */
+    background: #028f5a; /* Adjusted button color */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 1000;
+}
+
